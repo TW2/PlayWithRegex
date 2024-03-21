@@ -174,7 +174,7 @@ public class MainFrame extends javax.swing.JFrame {
             StringBuilder sb = new StringBuilder();
             while(m.find()){
                 Map<String, Integer> namedGroups = m.namedGroups();
-                sb.append("Result ").append(count).append(" ");
+                sb.append("Result ").append(count).append(" in ").append(m.group()).append("\n");
                 for(int i=0; i<m.groupCount(); i++){
                     sb.append("Group #").append(i+1).append(" ");
                     for(Map.Entry<String, Integer> entry : namedGroups.entrySet()){
@@ -183,9 +183,9 @@ public class MainFrame extends javax.swing.JFrame {
                             break;
                         }
                     }
-                    sb.append("\n");
-                    sb.append("Found : ").append(m.group(i)).append("\n\n");
+                    sb.append(" >> found: ").append(m.group(i+1)).append("\n");
                 }
+                sb.append("\n");
                 count++;
             }
             
